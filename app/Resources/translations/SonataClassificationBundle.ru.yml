@@ -1,0 +1,15 @@
+label_tags: Теги
+list.label_name: Название
+list.label_slug: Алиас
+list.label_context: Контекст
+list.label_enabled: Активен
+list.label_created_at: Дата создания
+list.label_updated_at: Дата обновления
+form.label_name: Название
+form.label_context: Контекст
+sonata_classification: Классификация
+label_contexts: Контексты
+list.label_id: Идентификатор
+form.label_id: Идентификатор
+label_collections: Коллекции
+label_categories: Категории

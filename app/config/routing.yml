@@ -1,0 +1,16 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+admin:
+    resource: "admin_routing.yml"
+    prefix: /admin
+
+
+#Infrastructure
+api_doc:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc/
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

@@ -1,0 +1,6 @@
+services:
+    app.admin.article:
+        class: AppBundle\Admin\ArticleAdmin
+        arguments: [~, AppBundle\Entity\Article, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Article, label: Article }
