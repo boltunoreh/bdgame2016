@@ -42,5 +42,14 @@ class RoboFile extends \Robo\Tasks
                 ->option('--env', $env)
                 ->run();
         }
+
+        if (!file_exists(__DIR__ . '/app/phpunit.xml')) {
+
+            $this
+                ->taskFilesystemStack()
+                ->copy(__DIR__ . '/app/phpunit.xml.dist', __DIR__ . '/app/phpunit.xml')
+                ->run();
+
+        }
     }
 }
