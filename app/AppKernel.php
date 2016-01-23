@@ -57,8 +57,10 @@ class AppKernel extends Kernel
             new Vesax\AdminExtraBundle\VesaxAdminExtraBundle($this),
             new Vesax\SEOBundle\VesaxSEOBundle(),
 
-            new AppBundle\AppBundle(),
+            new ADW\JsContextBundle\ADWJsContextBundle(),
+            new ADW\CommonBundle\ADWCommonBundle(),
 
+            new AppBundle\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

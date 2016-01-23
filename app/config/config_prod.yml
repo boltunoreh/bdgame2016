@@ -13,9 +13,12 @@ imports:
 #        result_cache_driver: apc
 #        query_cache_driver: apc
 
-monolog:
-    channels: [domain]
+#adw_common:
+#    logger:
+#        rollbar:
+#            token: ...
 
+monolog:
     handlers:
         main:
             type:         fingers_crossed
@@ -31,8 +34,14 @@ monolog:
             level: info
         console:
             type:  console
+
         #external:
         #    type:  rotating_file
         #    path:  "%kernel.logs_dir%/external/%kernel.environment%.log"
         #    level: info
         #    channels: [channel_for_external_api_logging_1, channel_for_external_api_logging_2]
+
+        #rollbar:
+        #    type: rollbar
+        #    id: common.logger.rollbar
+        #    level: critical

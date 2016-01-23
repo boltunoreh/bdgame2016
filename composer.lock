@@ -4,9 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "245262e7c48849da22d8426770d84a58",
-    "content-hash": "3f6e95f6e8c26290854b6fdee9aff7ad",
+    "hash": "713cd2b234f9117db559137d606e4b0b",
+    "content-hash": "417c2c8f96bddc1a4b57159ccdd2547f",
     "packages": [
+        {
+            "name": "adw/common-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/prodhub/common-bundle.git",
+                "reference": "78df6cff14d25e7a3724a3f4d658af9ec3e6cf56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/prodhub/common-bundle/get/78df6cff14d25e7a3724a3f4d658af9ec3e6cf56.zip",
+                "reference": "78df6cff14d25e7a3724a3f4d658af9ec3e6cf56",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ADW\\CommonBundle\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Artur Vesker",
+                    "email": "arturvesker@gmail.com"
+                }
+            ],
+            "time": "2016-01-22 17:00:28"
+        },
+        {
+            "name": "adw/js-context-bundle",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/prodhub/js-context-bundle.git",
+                "reference": "f5532054e0d254bb640bf543a80155722b072e48"
+            },
+            "require": {
+                "jms/serializer-bundle": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ADW\\JsContextBundle\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Artur Vesker",
+                    "email": "arturvesker@gmail.com"
+                }
+            ],
+            "time": "2016-01-15 10:32:00"
+        },
         {
             "name": "cocur/slugify",
             "version": "v1.4",
@@ -2412,6 +2465,55 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "rollbar/rollbar",
+            "version": "v0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2015-07-29 00:03:24"
+        },
+        {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.3",
             "source": {
@@ -2568,12 +2670,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "f2d7c508cf49435792ae8ab78ab5a2534412d99e"
+                "reference": "3397c965ffd57a86a7af692af3f433238f001be3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/f2d7c508cf49435792ae8ab78ab5a2534412d99e",
-                "reference": "f2d7c508cf49435792ae8ab78ab5a2534412d99e",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3397c965ffd57a86a7af692af3f433238f001be3",
+                "reference": "3397c965ffd57a86a7af692af3f433238f001be3",
                 "shasum": ""
             },
             "require": {
@@ -2646,7 +2748,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-01-19 10:55:15"
+            "time": "2016-01-22 21:35:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3028,12 +3130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "f3abdfcfaca3f61b37e7b194fd4aa48c172796db"
+                "reference": "546924e7d159289000ac1f29c87b7b2e5fd02ca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/f3abdfcfaca3f61b37e7b194fd4aa48c172796db",
-                "reference": "f3abdfcfaca3f61b37e7b194fd4aa48c172796db",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/546924e7d159289000ac1f29c87b7b2e5fd02ca4",
+                "reference": "546924e7d159289000ac1f29c87b7b2e5fd02ca4",
                 "shasum": ""
             },
             "require": {
@@ -3094,7 +3196,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2016-01-09 12:12:21"
+            "time": "2016-01-20 09:08:05"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -4479,12 +4581,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Vesax/SEOBundle.git",
-                "reference": "32090108c4eb3c888946d6847887bd1f45bc16a8"
+                "reference": "d59ce60367d45cb3ab814bb54b1ff0e09d4cecc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Vesax/SEOBundle/zipball/32090108c4eb3c888946d6847887bd1f45bc16a8",
-                "reference": "32090108c4eb3c888946d6847887bd1f45bc16a8",
+                "url": "https://api.github.com/repos/Vesax/SEOBundle/zipball/d59ce60367d45cb3ab814bb54b1ff0e09d4cecc4",
+                "reference": "d59ce60367d45cb3ab814bb54b1ff0e09d4cecc4",
                 "shasum": ""
             },
             "type": "library",
@@ -4500,7 +4602,7 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2016-01-17 13:26:11"
+            "time": "2016-01-22 13:57:08"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -4709,16 +4811,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.11",
+            "version": "v1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef"
+                "reference": "2c9f8298181f059c5077abda78019b9a0c9a7cc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef",
-                "reference": "bd3ec2c2b774e0e127ac2c737ec646d9cf2f9eef",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/2c9f8298181f059c5077abda78019b9a0c9a7cc0",
+                "reference": "2c9f8298181f059c5077abda78019b9a0c9a7cc0",
                 "shasum": ""
             },
             "require": {
@@ -4759,7 +4861,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2015-12-01 22:34:33"
+            "time": "2016-01-20 19:00:28"
         },
         {
             "name": "fzaninotto/faker",
@@ -5036,7 +5138,8 @@
         "sonata-project/media-bundle": 20,
         "sonata-project/exporter": 20,
         "sonata-project/classification-bundle": 20,
-        "vesax/seo-bundle": 20
+        "vesax/seo-bundle": 20,
+        "adw/common-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

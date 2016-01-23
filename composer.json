@@ -51,7 +51,11 @@
         "vesax/admin-extra-bundle": "^0.2",
         "vesax/seo-bundle": "dev-master",
 
-        "egeloen/ckeditor-bundle": "^4.0"
+        "egeloen/ckeditor-bundle": "^4.0",
+
+        "adw/common-bundle": "dev-master",
+        "adw/js-context-bundle": "^0.3.1",
+        "rollbar/rollbar": "^0.15.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
@@ -86,5 +90,9 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
-    }
+    },
+    "repositories": [
+        { "type": "vcs", "url": "https://bitbucket.org/prodhub/common-bundle.git" },
+        { "type": "vcs", "url": "https://bitbucket.org/prodhub/js-context-bundle.git" }
+    ]
 }
