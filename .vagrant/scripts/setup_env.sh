@@ -15,6 +15,7 @@ fi
 
 source /etc/environment
 
+#https://www.digitalocean.com/community/tutorials/how-to-add-swap-on-centos-6
 if [ $(swapon -s | grep "/swapfile" | wc -l) -eq 0 ]; then
     sudo dd if=/dev/zero of=/swapfile bs=1024 count=1024k
     mkswap /swapfile

@@ -44,8 +44,8 @@ IP_ADDRESS = parameters['ip']
 SITE_PATH = File.basename(File.dirname(__FILE__))
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "centos_php55_v07_vb_guest5.0.12.box"
-    config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos_php55_v07_vb_guest5.0.12.box"
+    config.vm.box = "centos_php55_v09"
+    config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos_php55_v09.box"
 
     config.vm.provider "virtualbox" do |v|
       v.name = "vagrant-" + SITE_PATH
