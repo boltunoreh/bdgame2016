@@ -2683,7 +2683,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3397c965ffd57a86a7af692af3f433238f001be3",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/7958cd6e218d7434daa98876807a108d04bbceaf",
                 "reference": "3397c965ffd57a86a7af692af3f433238f001be3",
                 "shasum": ""
             },
@@ -2769,7 +2769,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/fa6628c368b3dc0fa1efed65a33260c7c7337377",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/d2cb8e8ee7657acf36a39b4b6ca46d78e280df5d",
                 "reference": "fa6628c368b3dc0fa1efed65a33260c7c7337377",
                 "shasum": ""
             },
