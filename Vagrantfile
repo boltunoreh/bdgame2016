@@ -59,6 +59,7 @@ Vagrant.configure("2") do |config|
 
       v.customize ["modifyvm", :id, "--nictype1", "virtio" ]
       v.customize ["modifyvm", :id, "--nictype2", "virtio" ]
+      v.customize ["modifyvm", :id, "--nictype3", "virtio"]
 
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
@@ -74,9 +75,13 @@ Vagrant.configure("2") do |config|
 
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
+    config.ssh.forward_agent = true
 
     # -- Подготовим ОСЬ для удобной работы в вагранте
     config.vm.provision :shell, :args => IP_ADDRESS+' '+SITE_PATH, :path => ".vagrant/scripts/setup_env.sh"
+
+    # -- Настроим нужную версию php
+    config.vm.provision :shell, :args => parameters['php'], :path => ".vagrant/scripts/setup_php.sh"
 
     # -- Создадим директории для проекта и проставим права
     config.vm.provision :shell, :path => ".vagrant/scripts/setup_dirs.sh"
