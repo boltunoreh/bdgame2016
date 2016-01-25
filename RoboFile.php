@@ -66,6 +66,7 @@ class RoboFile extends \Robo\Tasks
 
         $this
             ->taskExec('php app/console fos:user:create admin admin@admin.ru admin')
+            ->option('--env', 'test')
             ->arg('--super-admin')
             ->run();
 
