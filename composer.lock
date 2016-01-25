@@ -4,9 +4,68 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3e0237166eb3bd8bdd2565cee1957a2",
-    "content-hash": "f0f8784888d6908ea41aa2cb97b4c965",
+    "hash": "7ec5201455d8770b4dfe5d5837afe04e",
+    "content-hash": "288702263a07d11e84edca9d47f2692c",
     "packages": [
+        {
+            "name": "adw/common-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/prodhub/common-bundle.git",
+                "reference": "6deeb49f9ffed08660898ed4f5e33d4b8fddb2ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/prodhub/common-bundle/get/6deeb49f9ffed08660898ed4f5e33d4b8fddb2ed.zip",
+                "reference": "6deeb49f9ffed08660898ed4f5e33d4b8fddb2ed",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ADW\\CommonBundle\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Artur Vesker",
+                    "email": "arturvesker@gmail.com"
+                }
+            ],
+            "time": "2016-01-25 10:09:46"
+        },
+        {
+            "name": "adw/js-context-bundle",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/prodhub/js-context-bundle.git",
+                "reference": "f5532054e0d254bb640bf543a80155722b072e48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/prodhub/js-context-bundle/get/f5532054e0d254bb640bf543a80155722b072e48.zip",
+                "reference": "f5532054e0d254bb640bf543a80155722b072e48",
+                "shasum": ""
+            },
+            "require": {
+                "jms/serializer-bundle": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ADW\\JsContextBundle\\": ""
+                }
+            },
+            "authors": [
+                {
+                    "name": "Artur Vesker",
+                    "email": "arturvesker@gmail.com"
+                }
+            ],
+            "time": "2016-01-15 11:32:00"
+        },
         {
             "name": "cocur/slugify",
             "version": "v1.4",
@@ -2587,6 +2646,55 @@
             "time": "2012-12-21 11:40:51"
         },
         {
+            "name": "rollbar/rollbar",
+            "version": "v0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2015-07-29 00:03:24"
+        },
+        {
             "name": "sensio/distribution-bundle",
             "version": "v5.0.3",
             "source": {
@@ -4557,16 +4665,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.23.3",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08"
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae53fc2c312fdee63773b75cb570304f85388b08",
-                "reference": "ae53fc2c312fdee63773b75cb570304f85388b08",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
+                "reference": "3e5aa30ebfbafd5951fb1b01e338e1800ce7e0e8",
                 "shasum": ""
             },
             "require": {
@@ -4579,7 +4687,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.23-dev"
+                    "dev-master": "1.24-dev"
                 }
             },
             "autoload": {
@@ -4614,7 +4722,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-01-11 14:02:19"
+            "time": "2016-01-25 21:22:18"
         },
         {
             "name": "vesax/admin-extra-bundle",
@@ -6113,7 +6221,8 @@
         "sonata-project/media-bundle": 20,
         "sonata-project/exporter": 20,
         "sonata-project/classification-bundle": 20,
-        "vesax/seo-bundle": 20
+        "vesax/seo-bundle": 20,
+        "adw/common-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

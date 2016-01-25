@@ -52,7 +52,7 @@
         "vesax/seo-bundle": "dev-master",
 
         "egeloen/ckeditor-bundle": "^4.0",
-        "codegyre/robo": "0.6.*"
+        "codegyre/robo": "0.6.*",
 
         "adw/common-bundle": "dev-master",
         "adw/js-context-bundle": "^0.3.1",
