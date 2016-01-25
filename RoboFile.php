@@ -52,4 +52,37 @@ class RoboFile extends \Robo\Tasks
 
         }
     }
+
+    public function deployCodeship()
+    {
+        $this->yell('Deploying to Codeship');
+
+        $this
+            ->taskExec('php app/console doctrine:schema:update')
+            ->option('--env', 'test')
+            ->arg('--force')
+            ->arg('--dump-sql')
+            ->run();
+
+        $this
+            ->taskExec('php app/console fos:user:create admin admin@admin.ru admin')
+            ->arg('--super-admin')
+            ->run();
+
+        $this
+            ->taskExec('php app/console assets:install')
+            ->printed(false)
+            ->run();
+
+        $this
+            ->taskExec('php app/console cache:clear')
+            ->option('--env', 'test')
+            ->run();
+
+        $this
+            ->taskFilesystemStack()
+            ->copy(__DIR__ . '/app/phpunit.xml.dist', __DIR__ . '/app/phpunit.xml')
+            ->run();
+
+    }
 }
