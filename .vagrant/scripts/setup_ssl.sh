@@ -35,6 +35,7 @@ SSLCryptoDevice builtin
         php_value upload_max_filesize 8000000
         php_value post_max_size 8000000
         php_value session.save_path "/dev/shm"
+        php_value date.timezone "Europe/Moscow"
     </IfModule>
 
     <Directory "$APP_PATH/public/web">

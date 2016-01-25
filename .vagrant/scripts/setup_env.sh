@@ -1,12 +1,11 @@
 #!/bin/bash
 
-sed -i '/APP_PATH/d' /etc/environment
+hostname $1
 
-if [ $(hostname) != "$1" ]; then
-    hostname $1
-fi
-
-echo "export APP_PATH=\"/data/sites/$2"\" >> /etc/environment
+# @see http://symfony.com/blog/new-in-symfony-2-7-phpunit-bridge
+sed -i '/SYMFONY_DEPRECATIONS_HELPER/d' /etc/environment && echo "export SYMFONY_DEPRECATIONS_HELPER=weak" >> /etc/environment
+sed -i '/PROJECT_NAME/d' /etc/environment && echo "export PROJECT_NAME=$2" >> /etc/environment
+sed -i '/APP_PATH/d' /etc/environment && echo "export APP_PATH=/data/sites/$2" >> /etc/environment
 
 if [ ! -f /home/vagrant/.ssh/id_rsa ]; then
     ssh-keygen -b 2048 -t rsa -f /home/vagrant/.ssh/id_rsa -q -N ""

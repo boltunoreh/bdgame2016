@@ -13,7 +13,7 @@
         ]
     },
     "require": {
-        "php": "5.5.*",
+        "php": "^5.5 || ^5.6 || ^7.0",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
@@ -52,7 +52,7 @@
         "vesax/seo-bundle": "dev-master",
 
         "egeloen/ckeditor-bundle": "^4.0",
-        "codegyre/robo": "^0.6.0"
+        "codegyre/robo": "0.6.*"
 
     },
     "require-dev": {
