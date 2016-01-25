@@ -46,7 +46,26 @@ $container->get('monolog.logger.domain')->info('User registered ...');
 ```
 Добавлен handler "external" - раскомментировать и настроить каналы если используются удаленные сервисы (CRM, например).
 
-TODO: купить и добавить rollbar или аналогичный сервис.
+Расширенный вариант rollbar handler'а:
+
+```
+#!yaml
+adw_common:
+    logger:
+        rollbar:
+            token: ...
+#           person_provider: my_awesome_person_provider #Можно указать кастомный провайдер данных пользователя
+
+monolog:
+    handlers:
+        rollbar:
+        type: rollbar
+        id: common.logger.rollbar
+        level: critical
+```
+В config_prod.yml все это есть, нужно только раскомментировать.
+
+TODO: купить rollbar.
 ***
 # Безопасность, пользователи #
 По умолчанию в комплекте есть FOS User Bundle.
