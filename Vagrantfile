@@ -11,7 +11,7 @@ end
 
 unless Vagrant.has_plugin?("vagrant-vbguest")
 
-  abort %Q[
+    abort %Q[
 Vagrant plugin ( vagrant-vbguest ) is not installed!
 To install, type this in WINDOWS terminal:
 vagrant plugin install vagrant-vbguest
@@ -44,8 +44,8 @@ IP_ADDRESS = parameters['ip']
 SITE_PATH = File.basename(File.dirname(__FILE__))
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "centos_php55_v09"
-    config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos_php55_v09.box"
+    config.vm.box = "centos65.v10"
+    config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos65.v10.box"
 
     config.vm.provider "virtualbox" do |v|
       v.name = "vagrant-" + SITE_PATH
@@ -68,30 +68,29 @@ Vagrant.configure("2") do |config|
     config.vm.network "private_network", ip: IP_ADDRESS
 
     if OS.windows?
-      config.vm.synced_folder "./", "/data/sites/" + SITE_PATH + "/public"
+      #config.vm.synced_folder "./", "/data/sites/" + SITE_PATH + "/public"
     else
-      config.vm.synced_folder "./", "/data/sites/" + SITE_PATH + "/public", type: "nfs"
+      #config.vm.synced_folder "./", "/data/sites/" + SITE_PATH + "/public", type: "nfs"
     end
 
     config.ssh.username = "vagrant"
     config.ssh.password = "vagrant"
-    config.ssh.forward_agent = true
 
     # -- Подготовим ОСЬ для удобной работы в вагранте
     config.vm.provision :shell, :args => IP_ADDRESS+' '+SITE_PATH, :path => ".vagrant/scripts/setup_env.sh"
 
     # -- Настроим нужную версию php
-    config.vm.provision :shell, :args => parameters['php'], :path => ".vagrant/scripts/setup_php.sh"
+    #config.vm.provision :shell, :args => parameters['php'], :path => ".vagrant/scripts/setup_php.sh"
 
     # -- Создадим директории для проекта и проставим права
-    config.vm.provision :shell, :path => ".vagrant/scripts/setup_dirs.sh"
+    #config.vm.provision :shell, :path => ".vagrant/scripts/setup_dirs.sh"
 
     # -- Создадим виртуальный хост http
-    config.vm.provision :shell, :path => ".vagrant/scripts/setup_http.sh"
+    #config.vm.provision :shell, :path => ".vagrant/scripts/setup_http.sh"
 
     # -- Создадим виртуальный хост ssl (https)
-    config.vm.provision :shell, :path => ".vagrant/scripts/setup_ssl.sh"
+    #config.vm.provision :shell, :path => ".vagrant/scripts/setup_ssl.sh"
 
     # -- deploy проекта
-    config.vm.provision :shell, :path => ".vagrant/scripts/setup_app.sh", :privileged => false
+    #config.vm.provision :shell, :path => ".vagrant/scripts/setup_app.sh", :privileged => false
 end
