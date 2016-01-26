@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class ArticleAdmin extends Admin
 {
+
     /**
      * @param DatagridMapper $datagridMapper
      */

@@ -8,7 +8,9 @@
          bootstrap="autoload.php"
 >
     <php>
-        <ini name="error_reporting" value="-1" />
+        <!-- disable E_USER_DEPRECATED -->
+        <!-- -16385 is the same as -1 & ~E_USER_DEPRECATED -->
+        <ini name="error_reporting" value="-16385" />
     </php>
 
     <testsuites>

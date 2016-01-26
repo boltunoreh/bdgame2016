@@ -8,6 +8,9 @@ imports:
 parameters:
     locale: ru
 
+monolog:
+    channels: [domain]
+
 framework:
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }
