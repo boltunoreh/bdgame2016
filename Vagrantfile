@@ -25,6 +25,8 @@ require 'fileutils'
 
 require './.vagrant/helpers/os.rb'
 
+FileUtils.cp(".vagrant/local.json.dist", ".vagrant/local.json") unless File.file?(".vagrant/local.json")
+
 # --
 # Вынесем параметры в отдельный json конфиг
 # --
@@ -37,8 +39,6 @@ Available php versions: 54 (php5.4), 55 (php5.5), 56 (php5.6), 70 (php7.0)
 Your version: #{parameters['php']}
 ]
 end
-
-FileUtils.cp(".vagrant/local.json.dist", ".vagrant/local.json") unless File.file?(".vagrant/local.json")
 
 IP_ADDRESS = parameters['ip']
 PROJECT_NAME = File.basename(File.dirname(__FILE__))
