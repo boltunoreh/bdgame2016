@@ -1,6 +1,6 @@
 imports:
     - { resource: config_dev.yml }
-    - { resource: codeship_parameters.php }
+    - { resource: test_parameters.php }
 
 framework:
     test: ~
@@ -20,7 +20,3 @@ swiftmailer:
 doctrine:
     dbal:
         default_connection: default
-        connections:
-            default:
-                driver:   pdo_sqlite
-                path:     %kernel.cache_dir%/test.db

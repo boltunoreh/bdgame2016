@@ -21,4 +21,15 @@ if (isset($_ENV['CI']) && $_ENV['CI'] == true) {
         ]
     ]);
 
+} else {
+
+    $container->loadFromExtension('doctrine', [
+        'dbal' => [
+            'host' => '127.0.0.1',
+            'dbname' => 'test',
+            'user' => 'root',
+            'password' => null
+        ]
+    ]);
+
 }

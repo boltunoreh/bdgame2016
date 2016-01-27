@@ -2,7 +2,10 @@
 
 namespace AppBundle\Tests\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use AppBundle\DataFixtures\ORM\LoadAdminData;
 use Application\Sonata\UserBundle\Entity\User;
+use Doctrine\ORM\Tools\SchemaTool;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -13,6 +16,8 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class DefaultControllerTest extends WebTestCase
 {
+    protected static $application;
+
     /**
      * @var \Doctrine\ORM\EntityManager
      */
@@ -26,27 +31,27 @@ class DefaultControllerTest extends WebTestCase
             ->get('doctrine')
             ->getManager();
 
-        $admin = new User();
-        $admin->setEmail("adminl@gmail.com");
-        $admin->setUsername("admin");
-        $admin->setPlainPassword("admin");
-        $admin->setEnabled(true);
-        $admin->setSuperAdmin(true);
 
-        $this->em->persist($admin);
-        $this->em->flush();
+        $console = static::$kernel->getRootDir();
+
+        exec("php $console/console doctrine:database:create --env=test --if-not-exists");
+        exec("php $console/console doctrine:schema:drop --env=test --dump-sql --force");
+        exec("php $console/console doctrine:schema:update --env=test --dump-sql --force");
+        exec("php $console/console doctrine:fixtures:load --env=test -n");
+
     }
 
 
-    public function testIndex()
-    {
-        $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
-
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
-    }
+//    public function testIndex()
+//    {
+//        $client = static::createClient();
+//
+//        $crawler = $client->request('GET', '/');
+//
+//        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+//        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+//    }
 
     public function testAdminAuth()
     {
@@ -57,21 +62,16 @@ class DefaultControllerTest extends WebTestCase
         $form = $crawler->selectButton('_submit')->form();
 
         $form['_username'] = 'admin';
-        $form['_password'] = 'admin3';
+        $form['_password'] = 'admin';
 
         $crawler = $client->submit($form);
 
         $this->assertTrue($client->getResponse()->isRedirect());
-
         $client->followRedirect();
 
-        print '<pre>' . print_r($client->getResponse()->getContent(), true) . '</pre>';
+        $client->request('GET', '/admin/dashboard');
 
-
-        die;
-
-//        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-//        $this->assertContains('Welcome to Symfony', $crawler->filter('#container h1')->text());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
     }
 }
