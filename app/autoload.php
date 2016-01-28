@@ -5,6 +5,8 @@ use Composer\Autoload\ClassLoader;
 
 if (isset($_SERVER['VAGRANT_ENV'])) {
 
+    ini_set('date.timezone', 'Europe/Moscow');
+
     /**
      * @var ClassLoader $loader
      */

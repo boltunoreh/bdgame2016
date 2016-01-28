@@ -12,12 +12,11 @@ rm -f /etc/httpd/conf.d/vagrant-http.conf && cat > /etc/httpd/conf.d/vagrant-htt
       ErrorLog "$APP_PATH/logs/apache-http-error.log"
       CustomLog "$APP_PATH/logs/apache-http-access.log" combined
 
-      <IfModule php5_module>
-          php_admin_value upload_tmp_dir "$APP_PATH/public/web"
-          php_value upload_max_filesize 8000000
-          php_value post_max_size 8000000
-          php_value session.save_path "/dev/shm"
-      </IfModule>
+      php_admin_value upload_tmp_dir "$APP_PATH/public/web"
+      php_value upload_max_filesize 8000000
+      php_value post_max_size 8000000
+      php_value session.save_path "/dev/shm"
+      php_value date.timezone "Europe/Moscow"
 
       <Directory "$APP_PATH/public/web">
           AllowOverride All

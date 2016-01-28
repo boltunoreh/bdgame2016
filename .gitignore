@@ -12,8 +12,6 @@
 
 /bin/*
 !bin/.gitkeep
-!bin/setup*
-!bin/deploy*
 
 /build/
 /vendor/
