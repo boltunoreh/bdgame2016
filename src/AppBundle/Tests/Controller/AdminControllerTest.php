@@ -8,6 +8,7 @@
 
 namespace AppBundle\Tests\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -23,10 +24,9 @@ class AdminControllerTest extends WebTestCase
 
         $consolePath = static::$kernel->getRootDir();
 
-        exec("php $consolePath/console doctrine:database:drop --env=test");
         exec("php $consolePath/console doctrine:database:create --env=test --if-not-exists");
-        exec("php $consolePath/console doctrine:schema:drop --env=test --dump-sql --force");
-        exec("php $consolePath/console doctrine:schema:update --env=test --dump-sql --force");
+        exec("php $consolePath/console doctrine:schema:drop --env=test --force");
+        exec("php $consolePath/console doctrine:schema:update --env=test --force");
         exec("php $consolePath/console doctrine:fixtures:load --env=test -n");
     }
 
@@ -49,5 +49,21 @@ class AdminControllerTest extends WebTestCase
         $client->request('GET', '/admin/dashboard');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+        return $client;
+    }
+
+    /**
+     * @depends testAdminLogin
+     * @param Client $client
+     */
+    public function testAdminLogout(Client $client)
+    {
+        $client->request('GET', '/admin/logout');
+        $this->assertTrue($client->getResponse()->isRedirect());
+        $client->followRedirect();
+
+        $client->request('GET', '/admin/dashboard');
+        $this->assertTrue($client->getResponse()->isRedirect());
     }
 }
