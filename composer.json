@@ -48,7 +48,7 @@
         "jms/serializer": "^1.1",
         "knplabs/knp-menu-bundle": "^2.0",
 
-        "vesax/admin-extra-bundle": "^0.2",
+        "vesax/admin-extra-bundle": "dev-master",
         "vesax/seo-bundle": "dev-master",
 
         "egeloen/ckeditor-bundle": "^4.0",
