@@ -50,6 +50,7 @@
 
         "vesax/admin-extra-bundle": "dev-master",
         "vesax/seo-bundle": "dev-master",
+        "vesax/maintenance-bundle": "dev-master",
 
         "egeloen/ckeditor-bundle": "^4.0",
         "codegyre/robo": "0.6.*",

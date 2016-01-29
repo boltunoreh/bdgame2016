@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7ec5201455d8770b4dfe5d5837afe04e",
-    "content-hash": "288702263a07d11e84edca9d47f2692c",
+    "hash": "21bb099221745cf57c162c33c617272d",
+    "content-hash": "1165a13ed990af8980607072a783fbab",
     "packages": [
         {
             "name": "adw/common-bundle",
@@ -43,12 +43,6 @@
                 "url": "https://bitbucket.org/prodhub/js-context-bundle.git",
                 "reference": "f5532054e0d254bb640bf543a80155722b072e48"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/prodhub/js-context-bundle/get/f5532054e0d254bb640bf543a80155722b072e48.zip",
-                "reference": "f5532054e0d254bb640bf543a80155722b072e48",
-                "shasum": ""
-            },
             "require": {
                 "jms/serializer-bundle": "^1.1"
             },
@@ -64,7 +58,7 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2016-01-15 11:32:00"
+            "time": "2016-01-15 10:32:00"
         },
         {
             "name": "cocur/slugify",
@@ -601,16 +595,16 @@
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
-            "version": "1.2.2",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a"
+                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/030ff41ef1db66370b36467086bfb817a661fe6a",
-                "reference": "030ff41ef1db66370b36467086bfb817a661fe6a",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
+                "reference": "18c600a9b82f6454d2e81ca4957cdd56a1cf3504",
                 "shasum": ""
             },
             "require": {
@@ -624,6 +618,7 @@
                 "instaclick/object-calisthenics-sniffs": "dev-master",
                 "instaclick/symfony2-coding-standard": "dev-remaster",
                 "phpunit/phpunit": "~4",
+                "predis/predis": "~0.8",
                 "satooshi/php-coveralls": "~0.6.1",
                 "squizlabs/php_codesniffer": "~1.5",
                 "symfony/console": "~2.2|~3.0",
@@ -684,7 +679,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-11-27 04:59:07"
+            "time": "2016-01-26 17:28:51"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -2851,12 +2846,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58"
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/fba67eeacd1c549bc209a3c5416d1594d30bcb58",
-                "reference": "fba67eeacd1c549bc209a3c5416d1594d30bcb58",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/750b26988c90a1004710a3d950a4caa755d55b39",
+                "reference": "750b26988c90a1004710a3d950a4caa755d55b39",
                 "shasum": ""
             },
             "require": {
@@ -2929,7 +2924,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-01-24 12:19:41"
+            "time": "2016-01-28 15:33:52"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2937,12 +2932,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "d2cb8e8ee7657acf36a39b4b6ca46d78e280df5d"
+                "reference": "0038efc20be396f6aed1bfdd7fea8691a231b2fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/d2cb8e8ee7657acf36a39b4b6ca46d78e280df5d",
-                "reference": "d2cb8e8ee7657acf36a39b4b6ca46d78e280df5d",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/0038efc20be396f6aed1bfdd7fea8691a231b2fc",
+                "reference": "0038efc20be396f6aed1bfdd7fea8691a231b2fc",
                 "shasum": ""
             },
             "require": {
@@ -2997,7 +2992,7 @@
                 "block",
                 "sonata"
             ],
-            "time": "2016-01-23 11:39:29"
+            "time": "2016-01-28 16:52:10"
         },
         {
             "name": "sonata-project/cache",
@@ -3621,12 +3616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "81b41e907df3ddf6a8b55fca1fc20ac64f3772bf"
+                "reference": "01e7b6990dabbe54068711a805ebf78d3419a822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/81b41e907df3ddf6a8b55fca1fc20ac64f3772bf",
-                "reference": "81b41e907df3ddf6a8b55fca1fc20ac64f3772bf",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/01e7b6990dabbe54068711a805ebf78d3419a822",
+                "reference": "01e7b6990dabbe54068711a805ebf78d3419a822",
                 "shasum": ""
             },
             "require": {
@@ -3705,7 +3700,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2016-01-05 09:36:20"
+            "time": "2016-01-29 14:07:34"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -4726,16 +4721,16 @@
         },
         {
             "name": "vesax/admin-extra-bundle",
-            "version": "v0.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Vesax/AdminExtraBundle.git",
-                "reference": "48d1f97707db3ccab44f6e4efc9bafa3e3116cd6"
+                "url": "https://github.com/Vesax/admin-extra-bundle.git",
+                "reference": "ce0dec5643a111273c896530d943e19ead8e1b9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Vesax/AdminExtraBundle/zipball/48d1f97707db3ccab44f6e4efc9bafa3e3116cd6",
-                "reference": "48d1f97707db3ccab44f6e4efc9bafa3e3116cd6",
+                "url": "https://api.github.com/repos/Vesax/admin-extra-bundle/zipball/ce0dec5643a111273c896530d943e19ead8e1b9e",
+                "reference": "ce0dec5643a111273c896530d943e19ead8e1b9e",
                 "shasum": ""
             },
             "require": {
@@ -4754,7 +4749,44 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2016-01-19 10:18:14"
+            "time": "2016-01-28 00:16:46"
+        },
+        {
+            "name": "vesax/maintenance-bundle",
+            "version": "dev-master",
+            "target-dir": "Vesax/MaintenanceBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vesax/MaintenanceBundle.git",
+                "reference": "a126d265458d9d036ef7eb1362be14835e839828"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vesax/MaintenanceBundle/zipball/a126d265458d9d036ef7eb1362be14835e839828",
+                "reference": "a126d265458d9d036ef7eb1362be14835e839828",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.6",
+                "symfony/symfony": "~2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Vesax\\MaintenanceBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artur Vesker",
+                    "email": "arturvesker@gmail.com"
+                }
+            ],
+            "time": "2015-11-05 10:05:59"
         },
         {
             "name": "vesax/seo-bundle",
@@ -6221,7 +6253,9 @@
         "sonata-project/media-bundle": 20,
         "sonata-project/exporter": 20,
         "sonata-project/classification-bundle": 20,
+        "vesax/admin-extra-bundle": 20,
         "vesax/seo-bundle": 20,
+        "vesax/maintenance-bundle": 20,
         "adw/common-bundle": 20
     },
     "prefer-stable": false,
