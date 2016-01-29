@@ -61,13 +61,14 @@ class RoboFile extends \Robo\Tasks
             ->taskExec('php app/console doctrine:schema:update')
             ->option('--env', 'test')
             ->arg('--force')
-            ->arg('--dump-sql')
+            ->printed(false)
             ->run();
 
         $this
             ->taskExec('php app/console fos:user:create admin admin@admin.ru admin')
             ->option('--env', 'test')
             ->arg('--super-admin')
+            ->printed(false)
             ->run();
 
         $this
@@ -78,6 +79,7 @@ class RoboFile extends \Robo\Tasks
         $this
             ->taskExec('php app/console cache:clear')
             ->option('--env', 'test')
+            ->printed(false)
             ->run();
 
         $this
