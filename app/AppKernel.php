@@ -69,6 +69,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            $bundles[] = new Vesax\MaintenanceBundle\VesaxMaintenanceBundle();
         }
 
         return $bundles;
@@ -82,6 +83,9 @@ class AppKernel extends Kernel
         $loader->load($this->getRootDir() . '/config/config_' . $this->getEnvironment() . '.yml');
     }
 
+    /**
+     * @return string
+     */
     public function getCacheDir()
     {
 
@@ -92,6 +96,9 @@ class AppKernel extends Kernel
         return parent::getCacheDir();
     }
 
+    /**
+     * @return string
+     */
     public function getLogDir()
     {
         if (isset($_SERVER['VAGRANT_ENV'])) {
