@@ -8,8 +8,8 @@
 
 namespace AppBundle\Tests\Controller;
 
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class AdminControllerTest
@@ -27,7 +27,10 @@ class AdminControllerTest extends WebTestCase
         exec("php $consolePath/console doctrine:database:create --env=test --if-not-exists");
         exec("php $consolePath/console doctrine:schema:drop --env=test --force");
         exec("php $consolePath/console doctrine:schema:update --env=test --force");
-        exec("php $consolePath/console doctrine:fixtures:load --env=test -n");
+
+        $this->loadFixtures([
+            'AppBundle\DataFixtures\ORM\LoadAdminData'
+        ]);
     }
 
     public function testAdminLogin()

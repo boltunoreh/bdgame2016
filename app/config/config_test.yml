@@ -20,7 +20,4 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-# Doctrine Configuration: Local sqlite db for test env
-doctrine:
-    dbal:
-        default_connection: default
+liip_functional_test: ~
