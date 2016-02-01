@@ -6,33 +6,40 @@
  * Time: 23:36
  */
 
-namespace AppBundle\Tests\Controller;
+namespace AppBundle\Tests\Admin;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 
 /**
- * Class AdminControllerTest
- * @package AppBundle\Tests\Controller
+ * Class AdminFunctionalTest
+ * @package AppBundle\Tests\Admin
  */
-class AdminControllerTest extends WebTestCase
+class AdminFunctionalTest extends WebTestCase
 {
-
     protected function setUp()
     {
-        self::bootKernel();
-
-        $consolePath = static::$kernel->getRootDir();
-
-        exec("php $consolePath/console doctrine:database:create --env=test --if-not-exists");
-        exec("php $consolePath/console doctrine:schema:drop --env=test --force");
-        exec("php $consolePath/console doctrine:schema:update --env=test --force");
+        $this->runCommand('doctrine:database:create', ['--if-not-exists' => true]);
+        $this->runCommand('doctrine:schema:drop', ['--force' => true]);
+        $this->runCommand('doctrine:schema:update', ['--force' => true]);
 
         $this->loadFixtures([
             'AppBundle\DataFixtures\ORM\LoadAdminData'
         ]);
     }
 
+    protected function tearDown()
+    {
+        $this->runCommand('doctrine:schema:drop', ['--force' => true]);
+
+        parent::tearDown();
+    }
+
+    /**
+     * @group admin
+     *
+     * @return Client
+     */
     public function testAdminLogin()
     {
         $client = static::createClient();
@@ -57,7 +64,9 @@ class AdminControllerTest extends WebTestCase
     }
 
     /**
+     * @group admin
      * @depends testAdminLogin
+     *
      * @param Client $client
      */
     public function testAdminLogout(Client $client)
