@@ -48,8 +48,8 @@ class AdminFunctionalTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'admin';
-        $form['_password'] = 'admin';
+        $form['_username'] = 'admin2';
+        $form['_password'] = 'admin2';
 
         $client->submit($form);
 

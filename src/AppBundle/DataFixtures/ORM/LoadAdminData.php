@@ -41,9 +41,9 @@ class LoadAdminData extends AbstractFixture implements FixtureInterface, Contain
     public function load(ObjectManager $manager)
     {
         $admin = new User();
-        $admin->setEmail("adminl@gmail.com");
-        $admin->setUsername("admin");
-        $admin->setPlainPassword("admin");
+        $admin->setEmail("admin2l@gmail.com");
+        $admin->setUsername("admin2");
+        $admin->setPlainPassword("admin2");
         $admin->setEnabled(true);
         $admin->setSuperAdmin(true);
 
