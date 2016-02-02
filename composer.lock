@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d8f3141bc7626d767525c2b075d3871",
-    "content-hash": "c99ca9225b68a29bba983b1dc3af2aee",
+    "hash": "1e327db935268e53e0869d7d2b290d5f",
+    "content-hash": "cc9d577953713acfab9a08676e117945",
     "packages": [
         {
             "name": "adw/common-bundle",
@@ -37,11 +37,17 @@
         },
         {
             "name": "adw/js-context-bundle",
-            "version": "v0.3.1",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://bitbucket.org/prodhub/js-context-bundle.git",
-                "reference": "f5532054e0d254bb640bf543a80155722b072e48"
+                "reference": "e6ad6523a34e8e1b09e4d91c13b816e2e0e1a53d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/prodhub/js-context-bundle/get/e6ad6523a34e8e1b09e4d91c13b816e2e0e1a53d.zip",
+                "reference": "e6ad6523a34e8e1b09e4d91c13b816e2e0e1a53d",
+                "shasum": ""
             },
             "require": {
                 "jms/serializer-bundle": "^1.1"
@@ -58,7 +64,7 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2016-01-15 10:32:00"
+            "time": "2016-02-01 11:13:57"
         },
         {
             "name": "behat/transliterator",
