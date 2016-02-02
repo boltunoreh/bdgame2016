@@ -1,3 +1,7 @@
+doctrine:
+    dbal:
+        dbname: test
+
 imports:
     - { resource: config_dev.yml }
     - { resource: codeship_parameters.php }
@@ -16,11 +20,4 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-# Doctrine Configuration: Local sqlite db for test env
-doctrine:
-    dbal:
-        default_connection: default
-        connections:
-            default:
-                driver:   pdo_sqlite
-                path:     %kernel.cache_dir%/test.db
+liip_functional_test: ~

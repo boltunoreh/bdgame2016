@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "21bb099221745cf57c162c33c617272d",
-    "content-hash": "1165a13ed990af8980607072a783fbab",
+    "hash": "41b4e6dde2cdfe159e1bebec85433fc4",
+    "content-hash": "77ee4a787b95a4383009f09b2dfb9821",
     "packages": [
         {
             "name": "adw/common-bundle",
@@ -43,6 +43,12 @@
                 "url": "https://bitbucket.org/prodhub/js-context-bundle.git",
                 "reference": "f5532054e0d254bb640bf543a80155722b072e48"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/prodhub/js-context-bundle/get/f5532054e0d254bb640bf543a80155722b072e48.zip",
+                "reference": "f5532054e0d254bb640bf543a80155722b072e48",
+                "shasum": ""
+            },
             "require": {
                 "jms/serializer-bundle": "^1.1"
             },
@@ -58,7 +64,7 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2016-01-15 10:32:00"
+            "time": "2016-01-15 11:32:00"
         },
         {
             "name": "cocur/slugify",
@@ -2456,16 +2462,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
-                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/e6f80ab77885151908d0ec743689ca700886e8b0",
+                "reference": "e6f80ab77885151908d0ec743689ca700886e8b0",
                 "shasum": ""
             },
             "require": {
@@ -2500,7 +2506,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-01-06 13:31:20"
+            "time": "2016-01-29 16:19:52"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -2846,12 +2852,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "750b26988c90a1004710a3d950a4caa755d55b39"
+                "reference": "3294a3aec754ef5d1a16e9db292eae2e4a509c10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/750b26988c90a1004710a3d950a4caa755d55b39",
-                "reference": "750b26988c90a1004710a3d950a4caa755d55b39",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3294a3aec754ef5d1a16e9db292eae2e4a509c10",
+                "reference": "3294a3aec754ef5d1a16e9db292eae2e4a509c10",
                 "shasum": ""
             },
             "require": {
@@ -2924,7 +2930,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-01-28 15:33:52"
+            "time": "2016-01-30 00:00:23"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4757,13 +4763,13 @@
             "target-dir": "Vesax/MaintenanceBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Vesax/MaintenanceBundle.git",
-                "reference": "a126d265458d9d036ef7eb1362be14835e839828"
+                "url": "https://github.com/Vesax/maintenance-bundle.git",
+                "reference": "ac5c8bafdc333b50eb594c4a8ebb30af301f058a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Vesax/MaintenanceBundle/zipball/a126d265458d9d036ef7eb1362be14835e839828",
-                "reference": "a126d265458d9d036ef7eb1362be14835e839828",
+                "url": "https://api.github.com/repos/Vesax/maintenance-bundle/zipball/ac5c8bafdc333b50eb594c4a8ebb30af301f058a",
+                "reference": "ac5c8bafdc333b50eb594c4a8ebb30af301f058a",
                 "shasum": ""
             },
             "require": {
@@ -4786,7 +4792,7 @@
                     "email": "arturvesker@gmail.com"
                 }
             ],
-            "time": "2015-11-05 10:05:59"
+            "time": "2016-01-29 16:10:27"
         },
         {
             "name": "vesax/seo-bundle",
@@ -5233,6 +5239,64 @@
                 "fixtures"
             ],
             "time": "2015-05-29 06:29:14"
+        },
+        {
+            "name": "liip/functional-test-bundle",
+            "version": "1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
+                "reference": "0981fc0a18678b50a53410496239b602dc5a355b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/0981fc0a18678b50a53410496239b602dc5a355b",
+                "reference": "0981fc0a18678b50a53410496239b602dc5a355b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.0",
+                "php": "^5.3.9|^7.0",
+                "symfony/browser-kit": "~2.3|~3.0",
+                "symfony/framework-bundle": "~2.3|~3.0",
+                "symfony/validator": "~2.5|~3.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "Required when using the fixture loading functionality with an ORM and SQLite",
+                "doctrine/doctrine-fixtures-bundle": "Required when using the fixture loading functionality",
+                "doctrine/orm": "Required when using the fixture loading functionality with an ORM and SQLite",
+                "nelmio/alice": "Required when using loadFixtureFiles functionality"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Liip\\FunctionalTestBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liip/LiipFunctionalTestBundle/contributors"
+                }
+            ],
+            "description": "This bundles provides additional functional test-cases for Symfony2 applications",
+            "keywords": [
+                "Symfony2"
+            ],
+            "time": "2015-12-28 19:04:56"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
