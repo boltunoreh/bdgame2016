@@ -19,10 +19,6 @@ class AdminFunctionalTest extends WebTestCase
 {
     protected function setUp()
     {
-        $this->runCommand('doctrine:database:create', ['--if-not-exists' => true]);
-        $this->runCommand('doctrine:schema:drop', ['--force' => true]);
-        $this->runCommand('doctrine:schema:update', ['--force' => true]);
-
         $this->loadFixtures([
             'AppBundle\DataFixtures\ORM\LoadAdminData'
         ]);
@@ -30,7 +26,7 @@ class AdminFunctionalTest extends WebTestCase
 
     protected function tearDown()
     {
-        $this->runCommand('doctrine:schema:drop', ['--force' => true]);
+        $this->loadFixtures([]);
 
         parent::tearDown();
     }
