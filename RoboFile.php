@@ -65,11 +65,6 @@ class RoboFile extends \Robo\Tasks
             ->run();
 
         $this
-            ->taskExec('php app/console doctrine:fixtures:load -n')
-            ->printed(false)
-            ->run();
-
-        $this
             ->taskExec('php app/console assets:install')
             ->printed(false)
             ->run();
