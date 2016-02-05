@@ -46,7 +46,6 @@ class AppKernel extends Kernel
 
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
 
-            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Nelmio\CorsBundle\NelmioCorsBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
@@ -72,6 +71,7 @@ class AppKernel extends Kernel
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new Vesax\MaintenanceBundle\VesaxMaintenanceBundle();
             $bundles[] = new \Liip\FunctionalTestBundle\LiipFunctionalTestBundle();
+            $bundles[] = new Nelmio\ApiDocBundle\NelmioApiDocBundle();
         }
 
         return $bundles;
