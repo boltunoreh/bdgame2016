@@ -18,12 +18,9 @@ class ResponseListener
             return;
         }
 
-        $event
-            ->getResponse()
-            ->headers
-            ->replace([
-                'X-Frame-Options' => 'deny',
-                'X-Content-Type-Options' => 'nosniff'
-            ]);
+        $headers = $event->getResponse()->headers;
+
+        $headers->set('X-Frame-Options', 'deny');
+        $headers->set('X-Content-Type-Options', 'nosniff');
     }
 }
