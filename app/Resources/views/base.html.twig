@@ -6,6 +6,15 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
+        {# @see http://brains.production.adwatch.ru/nestle/checklist #}
+        <script type="text/javascript">
+            if (self == top) {
+                document.documentElement.style.display = 'block';
+            } else {
+                top.location = self.location;
+            }
+        </script>
+
         {{ js_context() }}
     </head>
     <body>
