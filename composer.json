@@ -2,6 +2,7 @@
     "name": "prodhub/skeleton-backend",
     "license": "proprietary",
     "type": "project",
+    "description": "ADW Projects Skeleton",
     "autoload": {
         "psr-4": {
             "": "src/",
