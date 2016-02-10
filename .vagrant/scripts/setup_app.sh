@@ -4,6 +4,7 @@ source /etc/environment
 
 sudo /etc/init.d/httpd graceful
 
+sudo composer self-update
 composer config -g github-oauth.github.com 5260f87b04f608b43d06d4b51bd8c6577add4b70
 
 cd ~ && rm -f website && ln -s "$APP_PATH/public" website
