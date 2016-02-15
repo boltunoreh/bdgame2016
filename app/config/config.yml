@@ -168,3 +168,9 @@ nelmio_cors:
             allow_headers: ['Content-Type']
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'PATCH']
             max_age: 3600
+
+#ADW Common Configuration
+adw_common:
+    response_headers:
+        X-Frame-Options: deny
+        X-Content-Type-Options: nosniff

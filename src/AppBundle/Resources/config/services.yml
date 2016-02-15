@@ -1,9 +1,4 @@
 services:
-    kernel.listener.response_listener:
-        class: AppBundle\Listener\ResponseListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
-
     app.admin.article:
         class: AppBundle\Admin\ArticleAdmin
         arguments: [~, AppBundle\Entity\Article, SonataAdminBundle:CRUD]
