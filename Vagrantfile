@@ -46,6 +46,7 @@ PROJECT_NAME = File.basename(File.dirname(__FILE__))
 Vagrant.configure("2") do |config|
     config.vm.box = "centos65.v11"
     config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos65.v11.box"
+    config.vbguest.auto_update = false
 
     #Текущая машина будет привязана к указанному ip адресу в параметрах
     config.vm.network "private_network", ip: IP_ADDRESS

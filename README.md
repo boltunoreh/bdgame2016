@@ -1,3 +1,5 @@
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8c6282f5-ea51-4cd4-a2dc-1370cc0725e6/big.png)](https://insight.sensiolabs.com/projects/8c6282f5-ea51-4cd4-a2dc-1370cc0725e6)
+
 # Что такое? #
 База для новых проектов. Symfony 2.8.
 ***
