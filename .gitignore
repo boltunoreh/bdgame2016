@@ -22,6 +22,7 @@
 /.vagrant/local.json
 /.vagrant/machines/
 
+/web/uploads/*
 !web/uploads/media/.gitkeep
 
 /web/bundles/
