@@ -40,6 +40,7 @@ twig:
     strict_variables: "%kernel.debug%"
     form:
         resources:
+            - 'SonataMediaBundle:Form:media_widgets.html.twig'
             - 'SonataCoreBundle:Form:datepicker.html.twig'
 #            - 'VesaxAdminExtraBundle::fields.html.twig'
 

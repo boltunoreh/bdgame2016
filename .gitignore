@@ -12,6 +12,7 @@
 
 /bin/*
 !bin/.gitkeep
+!bin/setup*
 
 /build/
 /vendor/
@@ -22,5 +23,7 @@
 /.vagrant/machines/
 
 /web/uploads/
+!/web/uploads/media/.gitkeep
+
 /web/bundles/
 /web/robots.txt
