@@ -12,6 +12,9 @@
 
 vagrant plugin install vagrant-vbguest
 
+### [Common Bundle](https://bitbucket.org/prodhub/common-bundle/overview)
+Общие вещи для наших решений.
+
 ### [Sonata](https://sonata-project.org/) ###
 Почти вся семейка сонаты.
 
