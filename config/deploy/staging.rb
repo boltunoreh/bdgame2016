@@ -57,4 +57,4 @@ set :branch, 'staging'
 #     # password: 'please use keys'
 #   }
 
-after 'deploy:updated', 'skeleton:create_admin'
+#after 'deploy:started', 'skeleton:create_admin'

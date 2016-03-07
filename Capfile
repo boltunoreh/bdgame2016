@@ -6,6 +6,7 @@ require 'capistrano/deploy'
 
 require 'capistrano/composer'
 require 'capistrano/symfony'
+require "airbrussh/capistrano"
 
 # Include tasks from other gems included in your Gemfile
 #
