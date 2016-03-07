@@ -39,7 +39,35 @@ set :deploy_to, '/data/sites/docs.production.adwatch.ru/public'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-after 'deploy:updated', 'symfony:assets:install'
+namespace :skeleton do
+
+  desc "Dump exposed js routes"
+  task :dump_js_routes do
+    on roles(:all) do
+      symfony_console('fos:js-routing:dump')
+    end
+  end
+
+  task :migrate do
+    on roles(:all) do
+      symfony_console('doctrine:migrations:migrate', '--no-interaction')
+    end
+  end
+
+  task :create_admin do
+    on roles(:all) do
+      symfony_console('fos:user:create admin admin@admin.ru admin', '--super-admin -q')
+    end
+  end
+
+  task :fix_media do
+    on roles(:all) do
+      symfony_console('sonata:media:fix-media-context')
+    end
+  end
+
+end
+
 
 namespace :deploy do
 
@@ -51,5 +79,11 @@ namespace :deploy do
       # end
     end
   end
-
 end
+
+after 'deploy:updated', 'skeleton:migrate'
+after 'deploy:updated', 'skeleton:fix_media'
+after 'deploy:updated', 'symfony:assets:install'
+after 'deploy:updated', 'skeleton:dump_js_routes'
+
+

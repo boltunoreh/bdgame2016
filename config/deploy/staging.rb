@@ -57,14 +57,4 @@ set :branch, 'staging'
 #     # password: 'please use keys'
 #   }
 
-after 'deploy:updated', 'symfony:assets:install'
-
-namespace :deploy do
-  task :migrate do
-    symfony_console('doctrine:migrations:migrate', '--no-interaction')
-  end
-  task :configure_sonata do
-    symfony_console('fos:user:create admin admin@admin.ru admin', '--super-admin')
-    symfony_console('sonata:media:fix-media-context')
-  end
-end
+after 'deploy:updated', 'skeleton:create_admin'
