@@ -29,6 +29,8 @@ server 'ci.production.adwatch.ru', user: 'webmaster', password: 'QFLgI6qvXipYjD4
 
 set :controllers_to_clear, []
 set :branch, 'staging'
+set :symfony_env,  "dev"
+set :composer_install_flags, '--no-interaction --quiet --optimize-autoloader'
 
 # Custom SSH Options
 # ==================
@@ -57,4 +59,5 @@ set :branch, 'staging'
 #     # password: 'please use keys'
 #   }
 
-#after 'deploy:started', 'skeleton:create_admin'
+# Dump api documentation
+after 'deploy:published', 'skeleton:dump_api_doc'

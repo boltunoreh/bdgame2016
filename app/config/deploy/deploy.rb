@@ -7,7 +7,9 @@ set :symfony_directory_structure, 2
 
 # Share files/directories between releases
 set :linked_files, ["app/config/parameters.yml"]
-set :linked_dirs, ["app/logs", "vendor"]
+set :linked_dirs, ["app/logs", "vendor", "web/uploads"]
+set :config_files, fetch(:linked_files)
+set :config_example_suffix, '.dist'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -51,10 +53,16 @@ namespace :deploy do
   end
 end
 
-before 'deploy:symlink:shared', 'deploy:build_parameters'
+
+
+# Apply migrations
 after 'deploy:updated', 'skeleton:migrate'
+
+# Fix Sonata Media contexts
 after 'deploy:updated', 'skeleton:fix_media'
+
+# Install assets
 after 'deploy:updated', 'symfony:assets:install'
+
+# Dump exposed js routes
 after 'deploy:updated', 'skeleton:dump_js_routes'
-
-

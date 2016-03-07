@@ -7,9 +7,22 @@ namespace :skeleton do
     end
   end
 
+  desc "Dump api documentation"
+  task :dump_api_doc do
+    on roles(:all) do
+      execute "mkdir -p #{current_path}/web/doc/ && php #{symfony_console_path} api:doc:dump --format=html --no-sandbox > #{current_path}/web/doc/api.html"
+    end
+  end
+
   task :migrate do
     on roles(:all) do
       symfony_console('doctrine:migrations:migrate', '--no-interaction')
+    end
+  end
+
+  task :fixtures do
+    on roles(:all) do
+      symfony_console('doctrine:fixtures:load', '--append --no-interaction')
     end
   end
 
