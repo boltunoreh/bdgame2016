@@ -15,7 +15,7 @@ set :config_example_suffix, '.dist'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/data/sites/docs.production.adwatch.ru/public'
+set :deploy_to, '/data/sites/skeleton/'
 
 # Default value for :scm is :git
 # set :scm, :git
