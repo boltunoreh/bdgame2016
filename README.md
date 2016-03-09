@@ -12,6 +12,9 @@
 
 vagrant plugin install vagrant-vbguest
 
+### [Common Bundle](https://bitbucket.org/prodhub/common-bundle/overview)
+Общие вещи для наших решений.
+
 ### [Sonata](https://sonata-project.org/) ###
 Почти вся семейка сонаты.
 
@@ -83,7 +86,7 @@ TODO: купить rollbar.
 Для разграничения доступа используются группы. К группам привязаны роли. 
 Список доступных ролей формируется используя RoleProvider. По умолчанию есть SonataRoleProvider, который сформирует список ролей на основе доступных админ - разделов. 
 
-[Посмотреть как добавить свой RoleProvider ](https://github.com/Vesax/AdminExtraBundle/blob/master/README.md) 
+[Как добавить свой RoleProvider ](https://github.com/Vesax/AdminExtraBundle/blob/master/README.md) 
 ***
 # Админка #
 Админка доступна по адресу /admin
@@ -122,6 +125,13 @@ bin/php-cs-fixer fix src
 ```
 
 ***
+
+# Деплой 
+
+[Деплой используя Capistrano](docs/deploy/capistrano.md) 
+
+***
+
 # Развитие скелетона #
 Цели разработки и использования скелетона:
 
