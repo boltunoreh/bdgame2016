@@ -8,7 +8,7 @@ server 'ci.production.adwatch.ru', user: 'webmaster', roles: %w{app db web}
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/data/sites/purina.production.adwatch.ru/public'
+# set :deploy_to, '/var/www/my_app_name'
 
 # role-based syntax
 # ==================

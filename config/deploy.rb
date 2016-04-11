@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'purina_skeleton'
-set :repo_url, 'git@bitbucket.org:prodhub/purina-skeleton-backend.git'
+set :repo_url, 'git@my_repository'
 set :symfony_directory_structure, 2
 
 # Default branch is :master
