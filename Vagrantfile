@@ -46,7 +46,8 @@ PROJECT_NAME = File.basename(File.dirname(__FILE__))
 Vagrant.configure("2") do |config|
     config.vm.box = "centos65.v11"
     config.vm.box_url = "http://tools.production.adwatch.ru/vagrant-boxes/centos65.v11.box"
-    config.vbguest.auto_update = false
+    config.vbguest.auto_update = true
+    config.ssh.insert_key = true
 
     #Текущая машина будет привязана к указанному ip адресу в параметрах
     config.vm.network "private_network", ip: IP_ADDRESS
@@ -69,14 +70,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     end
 
-    if OS.windows?
-      config.vm.synced_folder "./", "/data/sites/" + PROJECT_NAME + "/public"
-    else
-      config.vm.synced_folder "./", "/data/sites/" + PROJECT_NAME + "/public", type: "nfs"
-    end
-
-    config.ssh.username = "vagrant"
-    config.ssh.password = "vagrant"
+    config.vm.synced_folder "./", "/data/sites/" + PROJECT_NAME + "/public"
 
     # -- Подготовим ОСЬ для удобной работы в вагранте
     config.vm.provision :shell, :args => IP_ADDRESS+' '+PROJECT_NAME, :path => ".vagrant/scripts/setup_env.sh"
