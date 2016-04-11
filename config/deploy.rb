@@ -1,21 +1,15 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'skeleton'
-set :repo_url, 'https://bitbucket.org/prodhub/skeleton-backend'
+set :application, 'purina_skeleton'
+set :repo_url, 'git@bitbucket.org:prodhub/purina-skeleton-backend.git'
 set :symfony_directory_structure, 2
-
-# Share files/directories between releases
-set :linked_files, ["app/config/parameters.yml"]
-set :linked_dirs, ["app/logs", "vendor", "web/uploads"]
-set :config_files, fetch(:linked_files)
-set :config_example_suffix, '.dist'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/data/sites/skeleton/'
+# set :deploy_to, '/var/www/my_app_name'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -30,10 +24,10 @@ set :deploy_to, '/data/sites/skeleton/'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('app/config/parameters.yml')
 
 # Default value for linked_dirs is []
-# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :linked_dirs, fetch(:linked_dirs, []).push('web/uploads')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -51,9 +45,8 @@ namespace :deploy do
       # end
     end
   end
+
 end
-
-
 
 # Apply migrations
 after 'deploy:updated', 'skeleton:migrate'

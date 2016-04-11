@@ -3,9 +3,12 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '<host>', user: '<user>', password: '<password>', roles: %w{app db web}
+server 'ci.production.adwatch.ru', user: 'webmaster', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
+
+# Default deploy_to directory is /var/www/my_app_name
+set :deploy_to, '/data/sites/purina.production.adwatch.ru/public'
 
 # role-based syntax
 # ==================
@@ -19,6 +22,8 @@ server '<host>', user: '<user>', password: '<password>', roles: %w{app db web}
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
+
+
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -27,10 +32,7 @@ server '<host>', user: '<user>', password: '<password>', roles: %w{app db web}
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
 
-set :controllers_to_clear, []
-set :branch, 'staging'
-set :symfony_env,  "dev"
-set :composer_install_flags, '--no-interaction --quiet --optimize-autoloader'
+
 
 # Custom SSH Options
 # ==================
@@ -58,6 +60,3 @@ set :composer_install_flags, '--no-interaction --quiet --optimize-autoloader'
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
-
-# Dump api documentation
-after 'deploy:published', 'skeleton:dump_api_doc'

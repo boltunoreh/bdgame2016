@@ -1,6 +1,3 @@
-set :deploy_config_path, 'app/config/deploy/deploy.rb'
-set :stage_config_path, 'app/config/deploy'
-
 # Load DSL and set up stages
 require 'capistrano/setup'
 
@@ -9,8 +6,6 @@ require 'capistrano/deploy'
 
 require 'capistrano/composer'
 require 'capistrano/symfony'
-require "airbrussh/capistrano"
-require 'capistrano/upload-config'
 
 # Include tasks from other gems included in your Gemfile
 #
@@ -32,4 +27,4 @@ require 'capistrano/upload-config'
 # require 'capistrano/passenger'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob('app/config/deploy/lib/capistrano/tasks/*.rake').each { |r| import r }
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
