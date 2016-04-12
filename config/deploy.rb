@@ -52,7 +52,7 @@ end
 after 'deploy:updated', 'skeleton:migrate'
 
 # Fix Sonata Media contexts
-after 'deploy:updated', 'skeleton:fix_media'
+#after 'deploy:updated', 'skeleton:fix_media'
 
 # Install assets
 after 'deploy:updated', 'symfony:assets:install'
