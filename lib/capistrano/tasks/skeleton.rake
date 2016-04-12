@@ -36,7 +36,7 @@ namespace :skeleton do
 
   task :fix_media do
     on roles(:db) do
-      execute "php #{symfony_console_path} sonata:media:fix-media-contex"
+      execute "php #{symfony_console_path} sonata:media:fix-media-context"
     end
   end
 
