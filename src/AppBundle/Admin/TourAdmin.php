@@ -44,6 +44,7 @@ class TourAdmin extends Admin
     {
         $formMapper
             ->add('title')
+            ->add('slug')
         ;
     }
 }

@@ -88,4 +88,12 @@ class Category
     {
         return $this->tour;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->title;
+    }
 }

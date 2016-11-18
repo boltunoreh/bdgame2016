@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}СВОЯ ФИГНЯЯЯ!{% endblock %}
 {% block body %}
     <div>
         Итак, вы в СВОЕЙ ФИГНЕ!!
@@ -10,7 +10,7 @@
     <div>Го!</div>
     <ul>
         {% for tour in tours %}
-            <li>{{ tour.title }}</li>
+            <li><a href="{{ path('tour', {'tour_slug': tour.slug }) }}">{{ tour.title }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}

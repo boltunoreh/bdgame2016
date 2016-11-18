@@ -28,6 +28,30 @@ class Tour
      */
     private $title;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return Tour
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
 
     /**
      * Get id
@@ -58,6 +82,14 @@ class Tour
      * @return string 
      */
     public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
     {
         return $this->title;
     }

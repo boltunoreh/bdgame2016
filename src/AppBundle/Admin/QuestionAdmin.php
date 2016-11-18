@@ -51,9 +51,20 @@ class QuestionAdmin extends Admin
                 'btn_add'     => false,
             ))
             ->add('cost')
-            ->add('question')
+            ->add('question', null, array(
+                'attr' => array(
+                    'rows' => 10,
+                ),
+            ))
             ->add('answer')
             ->add('image',
+                'sonata_media_type',
+                array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'default',
+                )
+            )
+            ->add('answerImage',
                 'sonata_media_type',
                 array(
                     'provider' => 'sonata.media.provider.image',

@@ -57,6 +57,33 @@ class Question
      */
     private $answer;
 
+    /**
+     * @var Media
+     * @ORM\ManyToOne(
+     *  targetEntity="Application\Sonata\MediaBundle\Entity\Media",
+     *  cascade={"persist", "remove"}
+     * )
+     */
+    private $answerImage;
+
+    /**
+     * @return Media
+     */
+    public function getAnswerImage()
+    {
+        return $this->answerImage;
+    }
+
+    /**
+     * @param Media $answerImage
+     * @return Question
+     */
+    public function setAnswerImage($answerImage)
+    {
+        $this->answerImage = $answerImage;
+        return $this;
+    }
+
 
     /**
      * Get id

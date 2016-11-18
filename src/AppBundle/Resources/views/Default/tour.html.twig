@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ tour.title }}{% endblock %}
+{% block body %}
+    <div>
+        Итак, {{ tour.title }}!
+    </div>
+    <table>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.title }}</td>
+                {% for question in questions if question.category.getId == category.id %}
+                    <td>{{ question.cost }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}
