@@ -6,9 +6,8 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Show\ShowMapper;
 
-class ArticleAdmin extends Admin
+class QuestionAdmin extends Admin
 {
 
     /**
@@ -28,9 +27,12 @@ class ArticleAdmin extends Admin
     {
         $listMapper
             ->add('id')
+            ->add('category')
+            ->add('cost')
+            ->add('question')
+            ->add('answer')
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 ),
@@ -44,18 +46,20 @@ class ArticleAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('content', 'ckeditor')
-            ->add('tags', 'tags', ['context' => 'default'])
-        ;
-    }
-
-    /**
-     * @param ShowMapper $showMapper
-     */
-    protected function configureShowFields(ShowMapper $showMapper)
-    {
-        $showMapper
-            ->add('id')
+            ->add('category', 'sonata_type_model', array(
+                'empty_value' => '',
+                'btn_add'     => false,
+            ))
+            ->add('cost')
+            ->add('question')
+            ->add('answer')
+            ->add('image',
+                'sonata_media_type',
+                array(
+                    'provider' => 'sonata.media.provider.image',
+                    'context'  => 'default',
+                )
+            )
         ;
     }
 }

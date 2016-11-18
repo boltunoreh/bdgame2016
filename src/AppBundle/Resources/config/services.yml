@@ -1,6 +1,25 @@
 services:
-    app.admin.article:
-        class: AppBundle\Admin\ArticleAdmin
-        arguments: [~, AppBundle\Entity\Article, SonataAdminBundle:CRUD]
+    app.admin.question:
+        class: AppBundle\Admin\QuestionAdmin
+        arguments: [~, AppBundle\Entity\Question, SonataAdminBundle:CRUD]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Article, label: Article }
+            - name: sonata.admin
+              manager_type: orm
+              group: "app.admin.group.questions"
+              label: Questions
+    app.admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [~, AppBundle\Entity\Category, SonataAdminBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "app.admin.group.questions"
+              label: Categories
+    app.admin.tour:
+        class: AppBundle\Admin\TourAdmin
+        arguments: [~, AppBundle\Entity\Tour, SonataAdminBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "app.admin.group.questions"
+              label: Tour
