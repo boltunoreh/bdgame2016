@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        Итак, вы в СВОЕЙ ФИГНЕ!!
+    </div>
+    <div>
+        Вам предстоит поделиться на 3 команды и сыграть 3 тура, чтобы выяснить, чья тут фигня! Ура!
+    </div>
+    <div>Го!</div>
+    <ul>
+        {% for tour in tours %}
+            <li>{{ tour.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
