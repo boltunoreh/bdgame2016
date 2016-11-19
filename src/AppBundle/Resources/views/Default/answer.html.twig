@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ category.title }} за {{ question.cost }}{% endblock %}
 {% block body %}
-    <div>
-        {{ question.answer }}
+    <div class="center">Ииии правильный отвввет:</div>
+    <div class="right-answer">
+        <h3>{{ question.answer }}</h3>
+        <img src="{% path question.answerImage, 'big' %}">
     </div>
-    <img src="{% path question.answerImage, 'big' %}">
 
-    <div>
+    <div class="who-answered-right">
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_end(form) }}

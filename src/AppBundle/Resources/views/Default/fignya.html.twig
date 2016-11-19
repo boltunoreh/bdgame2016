@@ -8,7 +8,7 @@
         Вам предстоит поделиться на 3 команды и сыграть 3 тура, чтобы выяснить, чья тут фигня! Ура!
     </div>
     <div>Го!</div>
-    <ul>
+    <ul class="tours">
         {% for tour in tours %}
             <li><a href="{{ path('tour', {'tour_slug': tour.slug }) }}">{{ tour.title }}</a></li>
         {% endfor %}

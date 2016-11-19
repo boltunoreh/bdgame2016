@@ -178,10 +178,15 @@ class DefaultController extends Controller
 
         $form = $this->createFormBuilder()
             ->add('team', ChoiceType::class, array(
+                'label'    => 'Чья же команда ответила верно??',
                 'expanded' => true,
                 'choices'  => $teamsArray,
             ))
-            ->add('Go', SubmitType::class)
+            ->add('Защитано!', SubmitType::class, array(
+                'attr' => array(
+                    'class' => 'scored',
+                ),
+            ))
             ->getForm();
 
         $form->handleRequest($request);

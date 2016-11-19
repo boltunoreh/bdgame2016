@@ -6,7 +6,8 @@ p { margin: 0 0 1em 0; }
 a { color: #0000F0; }
 a:hover { text-decoration: none; }
 code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-#wrapper { background: #FFF; margin: 1em auto; max-width: 900px; width: 95%; }
+#wrapper { margin: 1em auto; max-width: 1000px; width: 95%; }
+.logo {max-width: 900px; width: 95%;}
 #container { padding: 2em; }
 #welcome, #status { margin-bottom: 2em; }
 #welcome h1 span { display: block; font-size: 75%; }
@@ -26,6 +27,7 @@ code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break
 body {
     background: #2b559d;
     color: white;
+    font-size: 20px;
 }
 a {
     color: #79d0dd
@@ -38,17 +40,14 @@ a {
 }
 .que-table-cost {
     padding: 25px 25px;
-    border: #1e369d solid 2px;
     text-align: center;
 }
 .que-table a {
     text-decoration: none;
-    color: #ddb807;
     font-weight: 600;
 }
 .scores {
     margin: 25px;
-    border: #1e369d solid 2px;
     padding: 10px;
 }
 .team-scores {
@@ -62,14 +61,59 @@ a {
     margin-top: 30px;
     text-align: center;
 }
-.answer a, .back-to-question a {
+.answer a, .back-to-question a, .tours a {
     text-decoration: none;
     font-weight: bold;
-    color: #ddb807;
 }
 .hint-list{
     float: left;
 }
 .clearfix {
     clear: both;
+}
+.who-answered-right {
+    margin-top: 30px;
+    text-align: center;
+}
+.right-answer {
+    text-align: center;
+}
+.right-answer img {
+    margin-top: 15px;
+}
+#welcome {
+    text-align: center;
+}
+.svoya-fignya a {
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 50px;
+}
+.tours li {
+    padding: 10px;
+}
+.scored {
+    width: 200px;
+    background-color: #ff1a81;
+    padding: 10px;
+}
+#form_team input {
+    margin: 25px 10px;
+}
+.center {
+    text-align: center;
+}
+
+/*border*/
+.tours li, .scores, .que-table-cost, .scored {
+    border: #1e369d solid 2px;
+}
+/*yellow*/
+.svoya-fignya a, .que-table a, .answer a, .back-to-question a, .tours a, .scored {
+    color: #ddb807;
+}
+/*size*/
+.tours, .que-table a, .answer, .scored, #form_team label {
+    font-size: 30px;
 }
