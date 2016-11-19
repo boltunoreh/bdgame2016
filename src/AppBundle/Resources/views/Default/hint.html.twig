@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ hint.title }}{% endblock %}
+{% block body %}
+    <div>
+        <h2>{{ hint.title }}</h2>
+        {{ hint.text|raw }}
+    </div>
+
+    <div>
+        <h3>КТО использовал подсказку</h3>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

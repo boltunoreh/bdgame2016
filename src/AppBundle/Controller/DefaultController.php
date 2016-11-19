@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Hint;
+use AppBundle\Entity\Question;
 use AppBundle\Entity\Tour;
 use AppBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -46,7 +47,66 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/fignya/{tour_slug}", name="tour")
+     * @Route("/fignya/hint/{hint_slug}/{question_id}", name="hint")
+     * @ParamConverter("hint", options={"mapping": {"hint_slug": "slug"}})
+     * @ParamConverter("question", options={"mapping": {"question_id": "id"}})
+     * @Template()
+     * @param Request $request
+     * @param Hint $hint
+     * @param Question $question
+     * @return array
+     */
+    public function hintAction(Request $request, Hint $hint, Question $question)
+    {
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+        $teamsArray = array();
+        foreach($teams as $team) {
+            $teamsArray[$team->getId()] = $team->getName();
+        }
+
+        $form = $this->createFormBuilder()
+            ->add('team', ChoiceType::class, array(
+                'expanded' => true,
+                'choices'  => $teamsArray,
+            ))
+            ->add('Вернуться к овпросу', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+
+            switch ($data['team']) {
+                case 1:
+                    $hint->setTeamOneUsed(true);
+                    break;
+                case 2:
+                    $hint->setTeamTwoUsed(true);
+                    break;
+                case 3:
+                    $hint->setTeamThreeUsed(true);
+                    break;
+            }
+
+            $em->persist($hint);
+            $em->flush();
+
+            return $this->redirectToRoute('question', array(
+                'category_slug' => $question->getCategory()->getSlug(),
+                'cost'          => $question->getCost(),
+            ));
+        }
+
+        return array(
+            'form'     => $form->createView(),
+            'hint' => $hint,
+        );
+    }
+
+    /**
+     * @Route("/fignya/tour/{tour_slug}", name="tour")
      * @Method("GET")
      * @ParamConverter("tour", options={"mapping": {"tour_slug": "slug"}})
      * @Template()
@@ -179,21 +239,6 @@ class DefaultController extends Controller
             'category' => $category,
             'question' => $question,
             'form'     => $form->createView(),
-        );
-    }
-
-    /**
-     * @Route("/fignya/{hint_slug}", name="hint")
-     * @Method("GET")
-     * @ParamConverter("hint", options={"mapping": {"hint_slug": "slug"}})
-     * @Template()
-     * @param Hint $hint
-     * @return array
-     */
-    public function hintAction(Hint $hint)
-    {
-        return array(
-            'hint' => $hint,
         );
     }
 }

@@ -2,7 +2,7 @@
 {% block title %}{{ category.title }} за {{ question.cost }}{% endblock %}
 {% block body %}
     <div>
-        {{ category.title }} за {{ question.cost }}!
+        <h2>{{ category.title }} за {{ question.cost }}!</h2>
     </div>
     <div>
         {{ question.question }}
@@ -13,10 +13,10 @@
         <h2>Подсказки подсказочки:</h2>
         {% for hint in hints %}
             <div class="hint">
-                <a href="{{ path('hint', {'hint_slug': hint.slug}) }}">{{ hint.title }}</a>
+                <a href="{{ path('hint', {'hint_slug': hint.slug, 'question_id': question.id}) }}">{{ hint.title }}</a>
             </div>
         {% endfor %}
     </div>
 
-    <div><a href="{{ path('answer', {'category_slug': category.slug, 'cost': question.cost }) }}">Правильный ответ</a></div>
+    <div class="answer"><a href="{{ path('answer', {'category_slug': category.slug, 'cost': question.cost }) }}">Правильный ответ</a></div>
 {% endblock %}

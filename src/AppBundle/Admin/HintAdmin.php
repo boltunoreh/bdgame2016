@@ -29,6 +29,9 @@ class HintAdmin extends Admin
             ->addIdentifier('id')
             ->addIdentifier('title')
             ->addIdentifier('slug')
+            ->add('teamOneUsed')
+            ->add('teamTwoUsed')
+            ->add('teamThreeUsed')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
@@ -49,6 +52,9 @@ class HintAdmin extends Admin
                 'required' => false,
             ))
             ->add('text')
+            ->add('teamOneUsed')
+            ->add('teamTwoUsed')
+            ->add('teamThreeUsed')
         ;
     }
 }

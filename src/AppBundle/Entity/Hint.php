@@ -38,6 +38,81 @@ class Hint
     private $slug;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="team1_used", type="boolean")
+     */
+    private $teamOneUsed;
+
+    /**
+     * @return boolean
+     */
+    public function isTeamOneUsed()
+    {
+        return $this->teamOneUsed;
+    }
+
+    /**
+     * @param boolean $teamOneUsed
+     * @return Hint
+     */
+    public function setTeamOneUsed($teamOneUsed)
+    {
+        $this->teamOneUsed = $teamOneUsed;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTeamTwoUsed()
+    {
+        return $this->teamTwoUsed;
+    }
+
+    /**
+     * @param boolean $teamTwoUsed
+     * @return Hint
+     */
+    public function setTeamTwoUsed($teamTwoUsed)
+    {
+        $this->teamTwoUsed = $teamTwoUsed;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTeamThreeUsed()
+    {
+        return $this->teamThreeUsed;
+    }
+
+    /**
+     * @param boolean $teamThreeUsed
+     * @return Hint
+     */
+    public function setTeamThreeUsed($teamThreeUsed)
+    {
+        $this->teamThreeUsed = $teamThreeUsed;
+        return $this;
+    }
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="team2_used", type="boolean")
+     */
+    private $teamTwoUsed;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="team3_used", type="boolean")
+     */
+    private $teamThreeUsed;
+
+    /**
      * @return string
      */
     public function getSlug()
