@@ -26,8 +26,8 @@ class CategoryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('title')
+            ->addIdentifier('id')
+            ->addIdentifier('title')
             ->add('tour')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -45,6 +45,9 @@ class CategoryAdmin extends Admin
     {
         $formMapper
             ->add('title')
+            ->add('slug', null, array(
+                'required' => false,
+            ))
             ->add('tour', 'sonata_type_model', array(
                 'empty_value' => '',
             ))

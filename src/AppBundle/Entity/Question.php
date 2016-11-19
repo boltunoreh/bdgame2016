@@ -67,6 +67,31 @@ class Question
     private $answerImage;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="done", type="boolean")
+     */
+    private $done;
+
+    /**
+     * @return boolean
+     */
+    public function isDone()
+    {
+        return $this->done;
+    }
+
+    /**
+     * @param boolean $done
+     * @return Question
+     */
+    public function setDone($done)
+    {
+        $this->done = $done;
+        return $this;
+    }
+
+    /**
      * @return Media
      */
     public function getAnswerImage()

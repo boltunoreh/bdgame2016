@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ category.title }} за {{ question.cost }}{% endblock %}
+{% block body %}
+    <div>
+        {{ category.title }} за {{ question.cost }}!
+    </div>
+    <div>
+        {{ question.question }}
+    </div>
+    <img src="{% path question.image, 'big' %}">
+
+    <div><a href="{{ path('answer', {'category_slug': category.slug, 'cost': question.cost }) }}">Правильный ответ</a></div>
+{% endblock %}

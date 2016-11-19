@@ -4,15 +4,28 @@
     <div>
         Итак, {{ tour.title }}!
     </div>
-    <table>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.title }}</td>
-                {% for question in questions if question.category.getId == category.id %}
-                    <td>{{ question.cost }}</td>
-                {% endfor %}
-            </tr>
-        {% endfor %}
+    {% if tour_is_done %}
+        {% if next_tour %}
+            <div>ПОТРЯСАЮЩЕ! Вы ответили на все вопросы во всех категориях, и теперь время следующего тура! После музыкальной паузы, конечно.</div>
+            <a href="{{ path('tour', {'tour_slug': next_tour.slug}) }}">Перейти к {{ next_tour.title }}</a>
+        {% else %}
+            <div>Отлично! Игра окончена! И кто-то из вас вероятно победил, впрочем мы забыли подсчитать очки! Пака!</div>
+        {% endif %}
+    {% else %}
+        <table class="que-table">
+            {% for category in categories %}
+                <tr>
+                    <td class="que-table-title">{{ category.title }}</td>
+                    {% for question in questions if question.category.getId == category.id %}
+                        <td class="que-table-cost">
+                            {% if question.done == false %}
+                                <a href="{{ path('question', {'category_slug': category.slug, 'cost': question.cost }) }}">{{ question.cost }}</a>
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
 
-    </table>
+        </table>
+    {% endif %}
 {% endblock %}

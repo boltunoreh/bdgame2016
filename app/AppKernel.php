@@ -59,6 +59,7 @@ class AppKernel extends Kernel
 
             new ADW\JsContextBundle\ADWJsContextBundle(),
             new ADW\CommonBundle\ADWCommonBundle(),
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 
             new AppBundle\AppBundle(),
         );

@@ -31,6 +31,7 @@ class QuestionAdmin extends Admin
             ->add('cost')
             ->add('question')
             ->add('answer')
+            ->add('done')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
@@ -57,6 +58,7 @@ class QuestionAdmin extends Admin
                 ),
             ))
             ->add('answer')
+            ->add('done')
             ->add('image',
                 'sonata_media_type',
                 array(

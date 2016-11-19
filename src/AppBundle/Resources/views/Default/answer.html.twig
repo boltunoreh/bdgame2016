@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ category.title }} за {{ question.cost }}{% endblock %}
+{% block body %}
+    <div>
+        {{ question.answer }}
+    </div>
+    <img src="{% path question.answerImage, 'big' %}">
+
+    <div><a href="{{ path('tour', {'tour_slug': tour.slug }) }}">Обратно к вопросам тура!</a></div>
+{% endblock %}

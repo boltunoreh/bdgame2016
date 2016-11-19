@@ -176,3 +176,9 @@ adw_common:
     response_headers:
         X-Frame-Options: deny
         X-Content-Type-Options: nosniff
+
+# Stof Doctrine Extensions Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true
