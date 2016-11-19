@@ -6,7 +6,7 @@ p { margin: 0 0 1em 0; }
 a { color: #0000F0; }
 a:hover { text-decoration: none; }
 code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-#wrapper { background: #FFF; margin: 1em auto; max-width: 800px; width: 95%; }
+#wrapper { background: #FFF; margin: 1em auto; max-width: 900px; width: 95%; }
 #container { padding: 2em; }
 #welcome, #status { margin-bottom: 2em; }
 #welcome h1 span { display: block; font-size: 75%; }
@@ -37,16 +37,19 @@ a {
     width: 300px;
 }
 .que-table-cost {
-    width: 100px;
-    height: 100px;
+    padding: 25px 25px;
     border: #1e369d solid 2px;
     text-align: center;
 }
-.que-table-cost a {
-    padding: 25px 25px;
+.que-table a {
     text-decoration: none;
     color: #ddb807;
     font-weight: 600;
+}
+.scores {
+    margin: 25px;
+    border: #1e369d solid 2px;
+    padding: 10px;
 }
 .team-scores {
     float: left;
@@ -55,11 +58,18 @@ a {
 .hints {
     margin-top: 30px;
 }
-.answer {
+.answer, .back-to-question {
     margin-top: 30px;
+    text-align: center;
 }
-.answer a {
+.answer a, .back-to-question a {
     text-decoration: none;
     font-weight: bold;
     color: #ddb807;
+}
+.hint-list{
+    float: left;
+}
+.clearfix {
+    clear: both;
 }

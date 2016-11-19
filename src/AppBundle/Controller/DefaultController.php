@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Hint;
 use AppBundle\Entity\Question;
+use AppBundle\Entity\Team;
 use AppBundle\Entity\Tour;
 use AppBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -47,61 +48,37 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/fignya/hint/{hint_slug}/{question_id}", name="hint")
+     * @Route("/fignya/hint/team_{team_number}/{hint_slug}/{question_id}", name="hint")
+     * @ParamConverter("team", options={"mapping": {"team_number": "number"}})
      * @ParamConverter("hint", options={"mapping": {"hint_slug": "slug"}})
      * @ParamConverter("question", options={"mapping": {"question_id": "id"}})
      * @Template()
-     * @param Request $request
+     * @param Team $team
      * @param Hint $hint
      * @param Question $question
      * @return array
      */
-    public function hintAction(Request $request, Hint $hint, Question $question)
+    public function hintAction(Team $team, Hint $hint, Question $question)
     {
-        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
-        $teamsArray = array();
-        foreach($teams as $team) {
-            $teamsArray[$team->getId()] = $team->getName();
-        }
-
-        $form = $this->createFormBuilder()
-            ->add('team', ChoiceType::class, array(
-                'expanded' => true,
-                'choices'  => $teamsArray,
-            ))
-            ->add('Вернуться к овпросу', SubmitType::class)
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-
-            switch ($data['team']) {
-                case 1:
+            switch ($team->getNumber()) {
+                case 'One':
                     $hint->setTeamOneUsed(true);
                     break;
-                case 2:
+                case 'Two':
                     $hint->setTeamTwoUsed(true);
                     break;
-                case 3:
+                case 'Three':
                     $hint->setTeamThreeUsed(true);
                     break;
             }
 
+            $em = $this->getDoctrine()->getManager();
             $em->persist($hint);
             $em->flush();
 
-            return $this->redirectToRoute('question', array(
-                'category_slug' => $question->getCategory()->getSlug(),
-                'cost'          => $question->getCost(),
-            ));
-        }
-
         return array(
-            'form'     => $form->createView(),
-            'hint' => $hint,
+            'question' => $question,
+            'hint'     => $hint,
         );
     }
 
@@ -161,6 +138,7 @@ class DefaultController extends Controller
     public function questionAction(Category $category, $cost)
     {
         $hints = $this->getDoctrine()->getRepository('AppBundle:Hint')->findAll();
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
 
         $question = $this->getDoctrine()->getRepository('AppBundle:Question')->findOneBy(array(
             'category' => $category,
@@ -170,6 +148,7 @@ class DefaultController extends Controller
         return array(
             'category' => $category,
             'question' => $question,
+            'teams'    => $teams,
             'hints'    => $hints,
         );
     }

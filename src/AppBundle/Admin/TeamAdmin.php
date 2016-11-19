@@ -28,6 +28,7 @@ class TeamAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
+            ->add('number')
             ->add('scores')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -45,6 +46,7 @@ class TeamAdmin extends Admin
     {
         $formMapper
             ->add('name')
+            ->add('number')
             ->add('scores')
         ;
     }

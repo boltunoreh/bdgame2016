@@ -17,6 +17,7 @@ class QuestionAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
+            ->add('category')
         ;
     }
 
@@ -26,12 +27,12 @@ class QuestionAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->addIdentifier('id')
             ->add('category')
-            ->add('cost')
-            ->add('question')
-            ->add('answer')
-            ->add('done')
+            ->addIdentifier('cost')
+            ->addIdentifier('question')
+            ->addIdentifier('answer')
+            ->addIdentifier('done')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),

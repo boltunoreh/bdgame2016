@@ -29,6 +29,31 @@ class Team
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="string", length=255)
+     */
+    private $number;
+
+    /**
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
+    }
+
+    /**
+     * @param string $number
+     * @return Team
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    /**
      * @var int
      *
      * @ORM\Column(name="scores", type="integer")

@@ -6,10 +6,7 @@
         {{ hint.text|raw }}
     </div>
 
-    <div>
-        <h3>КТО использовал подсказку</h3>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+    <div class="back-to-question">
+        <a href="{{ path('question', {'category_slug': question.category.slug, 'cost': question.cost}) }}">Назад к вопросу!</a>
     </div>
 {% endblock %}

@@ -11,11 +11,37 @@
 
     <div class="hints">
         <h2>Подсказки подсказочки:</h2>
-        {% for hint in hints %}
-            <div class="hint">
-                <a href="{{ path('hint', {'hint_slug': hint.slug, 'question_id': question.id}) }}">{{ hint.title }}</a>
-            </div>
-        {% endfor %}
+        <div class="hint-list">
+            <h3>{{ teams[0].name }}</h3>
+            <ul>
+                {% for hint in hints if hint.teamOneUsed != 1 %}
+                    <li class="hint">
+                        <a href="{{ path('hint', {'team_number': 'One', 'hint_slug': hint.slug, 'question_id': question.id}) }}">{{ hint.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="hint-list">
+            <h3>{{ teams[1].name }}</h3>
+            <ul>
+                {% for hint in hints if hint.teamTwoUsed != 1 %}
+                    <li class="hint">
+                        <a href="{{ path('hint', {'team_number': 'Two', 'hint_slug': hint.slug, 'question_id': question.id}) }}">{{ hint.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="hint-list">
+            <h3>{{ teams[2].name }}</h3>
+            <ul>
+                {% for hint in hints if hint.teamThreeUsed != 1 %}
+                    <li class="hint">
+                        <a href="{{ path('hint', {'team_number': 'Three', 'hint_slug': hint.slug, 'question_id': question.id}) }}">{{ hint.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="clearfix"></div>
     </div>
 
     <div class="answer"><a href="{{ path('answer', {'category_slug': category.slug, 'cost': question.cost }) }}">Правильный ответ</a></div>

@@ -9,7 +9,7 @@
         {% for team in teams %}
             <div class="team-scores">{{ team.name }}: {{ team.scores }}</div>
         {% endfor %}
-        <div style="clear:both;"></div>
+        <div class="clearfix"></div>
     </div>
     {% if tour_is_done %}
         {% if next_tour %}
@@ -24,9 +24,11 @@
                 <tr>
                     <td class="que-table-title">{{ category.title }}</td>
                     {% for question in questions if question.category.getId == category.id %}
-                        <td class="que-table-cost">
+                        <td>
                             {% if question.done == false %}
-                                <a href="{{ path('question', {'category_slug': category.slug, 'cost': question.cost }) }}">{{ question.cost }}</a>
+                                <a href="{{ path('question', {'category_slug': category.slug, 'cost': question.cost }) }}">
+                                    <div class="que-table-cost">{{ question.cost }}</div>
+                                </a>
                             {% endif %}
                         </td>
                     {% endfor %}
