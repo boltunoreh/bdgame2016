@@ -23,3 +23,11 @@ services:
               manager_type: orm
               group: "app.admin.group.questions"
               label: Tour
+    app.admin.team:
+        class: AppBundle\Admin\TeamAdmin
+        arguments: [~, AppBundle\Entity\Team, SonataAdminBundle:CRUD]
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "app.admin.group.questions"
+              label: Team
