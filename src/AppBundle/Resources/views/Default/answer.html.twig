@@ -6,5 +6,9 @@
     </div>
     <img src="{% path question.answerImage, 'big' %}">
 
-    <div><a href="{{ path('tour', {'tour_slug': tour.slug }) }}">Обратно к вопросам тура!</a></div>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

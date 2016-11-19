@@ -9,5 +9,14 @@
     </div>
     <img src="{% path question.image, 'big' %}">
 
+    <div class="hints">
+        <h2>Подсказки подсказочки:</h2>
+        {% for hint in hints %}
+            <div class="hint">
+                <a href="{{ path('hint', {'hint_slug': hint.slug}) }}">{{ hint.title }}</a>
+            </div>
+        {% endfor %}
+    </div>
+
     <div><a href="{{ path('answer', {'category_slug': category.slug, 'cost': question.cost }) }}">Правильный ответ</a></div>
 {% endblock %}

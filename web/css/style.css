@@ -48,3 +48,6 @@ a {
     color: #ddb807;
     font-weight: 600;
 }
+.team-scores {
+    float: left;
+}

@@ -2,12 +2,15 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Hint;
 use AppBundle\Entity\Tour;
 use AppBundle\Entity\Category;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -52,6 +55,8 @@ class DefaultController extends Controller
      */
     public function tourAction(Tour $tour)
     {
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+
         $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->findBy(array(
             'tour' => $tour->getId(),
         ));
@@ -77,6 +82,7 @@ class DefaultController extends Controller
         return array(
             'tour_is_done' => $thisTourIsDone,
             'next_tour'    => $nextTour,
+            'teams'        => $teams,
             'categories'   => $categories,
             'questions'    => $questions,
             'tour'         => $tour,
@@ -94,6 +100,8 @@ class DefaultController extends Controller
      */
     public function questionAction(Category $category, $cost)
     {
+        $hints = $this->getDoctrine()->getRepository('AppBundle:Hint')->findAll();
+
         $question = $this->getDoctrine()->getRepository('AppBundle:Question')->findOneBy(array(
             'category' => $category,
             'cost'     => $cost,
@@ -102,37 +110,90 @@ class DefaultController extends Controller
         return array(
             'category' => $category,
             'question' => $question,
+            'hints'    => $hints,
         );
     }
 
     /**
      * @Route("/fignya/{category_slug}/{cost}/answer", name="answer")
-     * @Method("GET")
      * @ParamConverter("category", options={"mapping": {"category_slug": "slug"}})
      * @Template()
+     * @param Request $request
      * @param Category $category
      * @param $cost
      * @return array
      */
-    public function answerAction(Category $category, $cost)
+    public function answerAction(Request $request, Category $category, $cost)
     {
+        $teams = $this->getDoctrine()->getRepository('AppBundle:Team')->findAll();
+        $teamsArray = array();
+        foreach($teams as $team) {
+            $teamsArray[$team->getId()] = $team->getName();
+        }
+
         $question = $this->getDoctrine()->getRepository('AppBundle:Question')->findOneBy(array(
             'category' => $category,
             'cost'     => $cost,
         ));
-
-        $question->setDone(true);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($question);
-        $em->flush();
-
         $tour = $category->getTour();
+
+        $form = $this->createFormBuilder()
+            ->add('team', ChoiceType::class, array(
+                'expanded' => true,
+                'choices'  => $teamsArray,
+            ))
+            ->add('Go', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+
+            $team = $this->getDoctrine()->getRepository('AppBundle:Team')->findOneBy(array(
+                'id' => $data,
+            ));
+
+            $teamNewScores = $team->getScores() + $cost;
+            $team->setScores($teamNewScores);
+
+            $em->persist($team);
+
+
+
+            $question->setDone(true);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($question);
+
+            $em->flush();
+
+            return $this->redirectToRoute('tour', array(
+                'tour_slug' => $tour->getSlug(),
+            ));
+        }
 
         return array(
             'tour'     => $tour,
             'category' => $category,
             'question' => $question,
+            'form'     => $form->createView(),
+        );
+    }
+
+    /**
+     * @Route("/fignya/{hint_slug}", name="hint")
+     * @Method("GET")
+     * @ParamConverter("hint", options={"mapping": {"hint_slug": "slug"}})
+     * @Template()
+     * @param Hint $hint
+     * @return array
+     */
+    public function hintAction(Hint $hint)
+    {
+        return array(
+            'hint' => $hint,
         );
     }
 }

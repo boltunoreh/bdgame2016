@@ -2,7 +2,14 @@
 {% block title %}{{ tour.title }}{% endblock %}
 {% block body %}
     <div>
-        Итак, {{ tour.title }}!
+        <h1>{{ tour.title }}!</h1>
+    </div>
+    <div class="scores">
+        <h2>Счет:</h2>
+        {% for team in teams %}
+            <div class="team-scores">{{ team.name }}: {{ team.scores }}</div>
+        {% endfor %}
+        <div style="clear:both;"></div>
     </div>
     {% if tour_is_done %}
         {% if next_tour %}
