@@ -3,7 +3,7 @@
 {% block body %}
     <div class="center">Ииии правильный отвввет:</div>
     <div class="right-answer">
-        <h3>{{ question.answer }}</h3>
+        <h3>{{ question.answer|raw }}</h3>
         <img src="{% path question.answerImage, 'big' %}">
     </div>
 

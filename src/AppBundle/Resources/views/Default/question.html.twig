@@ -5,7 +5,7 @@
         <h2>{{ category.title }} за {{ question.cost }}!</h2>
     </div>
     <div>
-        {{ question.question }}
+        {{ question.question|raw }}
     </div>
     <img src="{% path question.image, 'big' %}">
 

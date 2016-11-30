@@ -17,6 +17,10 @@
             <a href="{{ path('tour', {'tour_slug': next_tour.slug}) }}">Перейти к {{ next_tour.title }}</a>
         {% else %}
             <div>Отлично! Игра окончена! И кто-то из вас вероятно победил, впрочем мы забыли подсчитать очки! Пака!</div>
+            <div>Ах да, победила команда (считайте сами):</div>
+            {% for team in teams %}
+                <div class="team-scores">{{ team.name }}: {{ team.scores }}</div>
+            {% endfor %}
         {% endif %}
     {% else %}
         <table class="que-table">

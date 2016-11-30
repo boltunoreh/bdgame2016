@@ -181,6 +181,7 @@ class DefaultController extends Controller
                 'label'    => 'Чья же команда ответила верно??',
                 'expanded' => true,
                 'choices'  => $teamsArray,
+                'required' => false,
             ))
             ->add('Защитано!', SubmitType::class, array(
                 'attr' => array(
@@ -193,18 +194,18 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
+            if (null != $data['team']) {
+                $em = $this->getDoctrine()->getManager();
 
-            $team = $this->getDoctrine()->getRepository('AppBundle:Team')->findOneBy(array(
-                'id' => $data,
-            ));
+                $team = $this->getDoctrine()->getRepository('AppBundle:Team')->findOneBy(array(
+                    'id' => $data,
+                ));
 
-            $teamNewScores = $team->getScores() + $cost;
-            $team->setScores($teamNewScores);
+                $teamNewScores = $team->getScores() + $cost;
+                $team->setScores($teamNewScores);
 
-            $em->persist($team);
-
-
+                $em->persist($team);
+            }
 
             $question->setDone(true);
 

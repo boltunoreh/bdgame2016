@@ -6,8 +6,9 @@ p { margin: 0 0 1em 0; }
 a { color: #0000F0; }
 a:hover { text-decoration: none; }
 code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-#wrapper { margin: 1em auto; max-width: 1000px; width: 95%; }
-.logo {max-width: 900px; width: 95%;}
+#wrapper { margin: 1em auto; max-width: 1200px; }
+.logo {max-width: 1200px; width: 95%;}
+.logo img {width: 300px;}
 #container { padding: 2em; }
 #welcome, #status { margin-bottom: 2em; }
 #welcome h1 span { display: block; font-size: 75%; }
@@ -67,6 +68,7 @@ a {
 }
 .hint-list{
     float: left;
+    max-width: 230px;
 }
 .clearfix {
     clear: both;
@@ -104,6 +106,9 @@ a {
 .center {
     text-align: center;
 }
+.audio {
+    margin: 20px;
+}
 
 /*border*/
 .tours li, .scores, .que-table-cost, .scored {
@@ -111,7 +116,7 @@ a {
 }
 /*yellow*/
 .svoya-fignya a, .que-table a, .answer a, .back-to-question a, .tours a, .scored {
-    color: #ddb807;
+    color: #ffe400;
 }
 /*size*/
 .tours, .que-table a, .answer, .scored, #form_team label {

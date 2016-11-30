@@ -53,7 +53,7 @@ class Question
     /**
      * @var string
      *
-     * @ORM\Column(name="answer", type="string", length=255)
+     * @ORM\Column(name="answer", type="text")
      */
     private $answer;
 
